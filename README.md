@@ -25,15 +25,15 @@ record is updated using django signals.
 
 1. Enable middleware to track the current request user:
 
-  ```python
+    ```python
     MIDDLEWARE = [
         ...
 
         'blame.middleware.RequestMiddleware',
     ]
     ```
-
-
+    
+    
 1. In your models:
 
     ```python
