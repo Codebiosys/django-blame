@@ -1,0 +1,31 @@
+#
+# Docker Compose settings for development
+#
+version: "3.4"
+
+services:
+
+  app:
+    build:
+      context: .
+      target: development
+    environment:
+      - DB_DIALECT=postgresql
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=postgres
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    # Allow intercation with PDB
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:10
+    expose:
+      - "5432"
+    tmpfs: /var/lib/postgresql/data

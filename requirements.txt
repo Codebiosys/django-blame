@@ -1,0 +1,2 @@
+django>=1.11.0                # LTS
+psycopg2>=2.7.0               # Database driver
