@@ -55,10 +55,11 @@ This app comes equiped with an optional mixin to resolve `created_by`/`updated_b
 fields to just `graphene.String` typed values. To enable this feature, add the
 following mixin to your graphql types:
 
-    ```python
-    from graphene_django import DjangoObjectType
-    from blame.type import BlameInfo
+```python
+from graphene_django import DjangoObjectType
+from blame.type import BlameInfo
 
-    class MyModelType(BlameInfo, DjangoObjectType):
-        ...
-    ```
+class MyModelType(BlameInfo, DjangoObjectType):
+    ...
+```
+
