@@ -92,7 +92,7 @@ It is highly encouraged you run the tests using the included docker stack.
 
     ```
     > docker-compose build
-		> docker-compose up -d
+    > docker-compose up -d
     ```
 
 1. Run the tests
