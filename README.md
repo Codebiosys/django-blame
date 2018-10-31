@@ -32,8 +32,8 @@ record is updated using django signals.
         'blame.middleware.RequestMiddleware',
     ]
     ```
-    
-    
+
+
 1. In your models:
 
     ```python
@@ -63,3 +63,40 @@ class MyModelType(BlameInfo, DjangoObjectType):
     ...
 ```
 
+### Running tests
+
+It is highly encouraged you run the tests using the included docker stack.
+
+
+1. Clone the application:
+
+    ```
+    > git clone https://github.com/CodeBiosys/django-blame
+    > cd django-blame
+    ```
+
+1. Provision a new Docker machine called `django-blame`:
+
+    ```
+    > docker-machine create -d virtualbox django-blame
+    > eval $(docker-machine env django-blame)
+    > docker-machine ls
+		NAME                ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS
+		django-blame        *        virtualbox   Running   tcp://192.168.99.100:2376           v18.06.1-ce
+    ```
+
+    **Note the asterisk in the "ACTIVE" column.**
+
+
+1. Build the application stack and start the services:
+
+    ```
+    > docker-compose build
+    > docker-compose up -d
+    ```
+
+1. Run the tests
+
+		```
+		docker-compose run --rm app py.test
+		```
